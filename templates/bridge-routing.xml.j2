@@ -1,0 +1,12 @@
+{% for network in role_mod_libvirt_net_create_networklist %}
+<network>
+  <name>{{ network.network_name }}</name>
+  <bridge name="{{ network.bridge_name }}"/>
+  <forward mode="route" dev="{{ network.forward_dev }}"/>
+  <ip address="{{ network.ipv4_address }}" netmask="{{ network.netmask }}">
+    <dhcp>
+      <range start="{{ network.range_start }}" end="{{ network.range_end }}"/>
+    </dhcp>
+  </ip>
+</network>
+{% endfor %}
