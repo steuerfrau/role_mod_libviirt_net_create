@@ -1,0 +1,8 @@
+- name: Install Python lxml package.
+  package:
+    name: python-lxml
+    state: present
+  when:
+    - ansible_facts['distribution'] == "CentOS"
+    - ansible_facts['distribution_major_version'] == "8" or ansible_facts['distribution_major_version'] == "7"
+

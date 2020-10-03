@@ -1,0 +1,5 @@
+- community.libvirt.virt_net:
+    command: define
+    name: "somename"
+    xml: '{{ lookup("template", "bridge-routing.xml.j2") }}'
+  when: role_mod_libvirt_net_create_networklist is defined
